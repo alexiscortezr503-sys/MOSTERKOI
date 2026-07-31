@@ -2206,7 +2206,7 @@
             <!-- STATS BENTO -->
             <div class="home-bento">
                 <div class="bento-stat bento-large">
-                    <div class="bento-stat-num" data-target="15">0</div>
+                    <div class="bento-stat-num" data-target="13">0</div>
                     <div class="bento-stat-label">Miembros totales</div>
                     <div class="bento-stat-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -2977,13 +2977,6 @@ document.addEventListener('DOMContentLoaded', function() {
             foto:'https://i.imgur.com/JZcpTlR.jpg',
             perfil:'https://i.imgur.com/fvMgHND.jpg'
         },
-        'yendris': {
-            name:'MKOI ◆ YENDRIS', realName:'YENDRIS',
-            uid:'276780454690', role:'Integrante',
-            rank:'Por definir', kd:'Por definir',
-            foto:'https://i.imgur.com/tCereNC.jpg',
-            perfil:'https://i.imgur.com/MzYVKif.jpg'
-        },
         'alexander': {
             name:'MKOI ◆ ALEXANDER', realName:'ALEXANDER',
             uid:'828414702042', role:'Integrante',
@@ -2997,13 +2990,6 @@ document.addEventListener('DOMContentLoaded', function() {
             rank:'Por definir', kd:'Por definir',
             foto:'https://i.imgur.com/ejmIUJ7.jpg',
             perfil:'https://i.imgur.com/7aMDWqW.jpg'
-        },
-        'jeremy': {
-            name:'MKOI ◆ JEREMY', realName:'Jeremy',
-            uid:'277850635843', role:'Integrante',
-            rank:'Por definir', kd:'Por definir',
-            foto:'https://i.imgur.com/uiGDXDc.jpg',
-            perfil:'https://i.imgur.com/fZhPVOQ.jpg'
         },
         'axel': {
             name:'MKOI ◆ AXEL', realName:'Axel',
@@ -3113,10 +3099,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { key:'cris',            gold:false, uid:'277858948562', label:'Integrante' },
         { key:'hector',          gold:false, uid:'278935100772', label:'Integrante' },
         { key:'wilson',          gold:false, uid:'825465644348', label:'Integrante' },
-        { key:'yendris',         gold:false, uid:'276780454690', label:'Integrante' },
         { key:'alexander',       gold:false, uid:'828414702042', label:'Integrante' },
         { key:'david',           gold:false, uid:'277323193684', label:'Integrante' },
-        { key:'jeremy',          gold:false, uid:'277850635843', label:'Integrante' },
         { key:'axel',            gold:false, uid:'275710457123', label:'Integrante' }
     ];
     coreMembers.forEach(m => {
@@ -3142,7 +3126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         flip.addEventListener('click', () => flip.classList.toggle('flipped'));
         membersList.appendChild(flip);
     });
-    for (let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 17; i++) {
         const flip = document.createElement('div');
         flip.className = 'member-flip';
         const ph = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='68'%3E%3Crect fill='%231C1C1C' width='68' height='68'/%3E%3Ctext x='50%25' y='50%25' font-size='14' text-anchor='middle' dy='.35em' fill='%23444' font-family='monospace'%3EM${String(i).padStart(2,'0')}%3C/text%3E%3C/svg%3E`;
