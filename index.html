@@ -1910,7 +1910,6 @@
 
 <!-- LOADING SCREEN -->
 <div id="loadingScreen">
-    <img src="https://i.imgur.com/lNJEdr6.jpg" alt="MK" class="load-logo">
     <div class="load-label">Monster Koi</div>
     <div class="load-sub">Bienvenido</div>
 </div>
@@ -3675,8 +3674,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const screen = document.getElementById('loadingScreen');
         if (!screen) return;
         setTimeout(() => {
-            screen.classList.add('done');
-            setTimeout(() => screen.style.display='none', 850);
+            screen.style.opacity = '0';
+            screen.style.transition = 'opacity 0.8s ease';
+            setTimeout(() => { screen.style.display='none'; }, 850);
         }, 1200);
     })();
 
