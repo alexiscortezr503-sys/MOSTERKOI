@@ -1340,64 +1340,30 @@
         #loadingScreen {
             position:fixed; inset:0; z-index:99999;
             background:#000; display:flex; flex-direction:column;
-            align-items:center; justify-content:center; overflow:hidden;
+            align-items:center; justify-content:center; gap:16px;
         }
         #loadingScreen.done {
-            animation:loadFadeOut 0.6s ease forwards;
+            animation:welcomeFadeOut 0.8s ease forwards;
             pointer-events:none;
         }
-        @keyframes loadFadeOut {
-            0%   { opacity:1; transform:scale(1); }
-            100% { opacity:0; transform:scale(1.05); display:none; }
+        @keyframes welcomeFadeOut {
+            to { opacity:0; }
         }
         .load-logo {
-            width:160px; height:160px; object-fit:contain;
-            filter:drop-shadow(0 0 30px rgba(255,215,0,.7));
-            animation:loadLogoPulse 1.5s ease-in-out infinite;
-            margin-bottom:28px;
+            width:120px; height:120px; object-fit:contain;
+            animation:welcomePulse 1.2s ease-in-out infinite;
         }
-        @keyframes loadLogoPulse {
-            0%,100% { filter:drop-shadow(0 0 20px rgba(255,215,0,.5)); transform:scale(1); }
-            50%     { filter:drop-shadow(0 0 50px rgba(255,215,0,.9)); transform:scale(1.04); }
-        }
-        .load-pct {
-            font-family:'Orbitron',monospace; font-size:2.8rem; font-weight:900;
-            color:var(--gold); letter-spacing:.1em; line-height:1;
-            text-shadow:0 0 40px rgba(255,215,0,.6);
-            margin-bottom:6px;
-        }
-        .load-pct.glitching { animation:pctGlitch .1s linear; }
-        @keyframes pctGlitch {
-            0%   { transform:translate(-2px,0) skew(.5deg); color:#ff003c; }
-            33%  { transform:translate(2px,0)  skew(-.5deg); color:#00fff9; }
-            66%  { transform:translate(-1px,0) skew(.2deg); color:var(--gold); }
-            100% { transform:translate(0,0) skew(0); color:var(--gold); }
+        @keyframes welcomePulse {
+            0%,100% { opacity:.85; transform:scale(1); }
+            50%     { opacity:1; transform:scale(1.05); }
         }
         .load-label {
-            font-family:'Rajdhani',sans-serif; font-size:.72rem; font-weight:600;
-            letter-spacing:.35em; color:#888; text-transform:uppercase;
-            margin-bottom:24px;
+            font-family:'Orbitron',monospace; font-size:1.1rem; font-weight:900;
+            color:var(--gold); letter-spacing:.2em; text-transform:uppercase;
         }
-        .load-bar-wrap {
-            width:260px; height:3px; background:rgba(255,215,0,.12);
-            border-radius:2px; overflow:visible; position:relative;
-        }
-        .load-bar {
-            height:100%; width:0; border-radius:2px;
-            background:linear-gradient(90deg, var(--gold-dim), var(--gold));
-            box-shadow:0 0 12px rgba(255,215,0,.8);
-            transition:width .05s linear; position:relative;
-        }
-        .load-bar::after {
-            content:''; position:absolute; right:0; top:50%;
-            transform:translateY(-50%);
-            width:6px; height:6px; border-radius:50%;
-            background:#fff; box-shadow:0 0 8px var(--gold);
-        }
-        .load-status {
-            font-family:'Rajdhani',sans-serif; font-size:.74rem;
-            color:#333; letter-spacing:.15em; margin-top:10px;
-            text-transform:uppercase;
+        .load-sub {
+            font-family:'Rajdhani',sans-serif; font-size:.8rem;
+            color:#555; letter-spacing:.2em; text-transform:uppercase;
         }
 
 
@@ -1945,10 +1911,8 @@
 <!-- LOADING SCREEN -->
 <div id="loadingScreen">
     <img src="https://i.imgur.com/lNJEdr6.jpg" alt="MK" class="load-logo">
-    <div class="load-pct" id="loadPct">0%</div>
-    <div class="load-label">Inicializando sistema</div>
-    <div class="load-bar-wrap"><div class="load-bar" id="loadBar"></div></div>
-    <div class="load-status" id="loadStatus">Cargando recursos...</div>
+    <div class="load-label">Monster Koi</div>
+    <div class="load-sub">Bienvenido</div>
 </div>
 
 <!-- REACTIVE MOUSE BACKGROUND -->
@@ -3708,44 +3672,12 @@ document.addEventListener('DOMContentLoaded', function() {
        LOADING SCREEN
     ══════════════════════════════════════════════ */
     (function() {
-        const screen  = document.getElementById('loadingScreen');
-        const pctEl   = document.getElementById('loadPct');
-        const barEl   = document.getElementById('loadBar');
-        const statEl  = document.getElementById('loadStatus');
+        const screen = document.getElementById('loadingScreen');
         if (!screen) return;
-
-        const steps = [
-            [40, 'Cargando recursos...'],
-            [70, 'Configurando...'],
-            [90, 'Cargando datos...'],
-            [100,'¡Listo!'],
-        ];
-        let pct = 0, stepIdx = 0;
-
-        const interval = setInterval(() => {
-            const target = steps[stepIdx][1] ? steps[stepIdx][0] : 100;
-            pct = Math.min(pct + (Math.random() * 10 + 5), steps[stepIdx][0]);
-            barEl.style.width = pct + '%';
-            pctEl.textContent = Math.floor(pct) + '%';
-
-            // Occasional glitch
-            if (Math.random() < 0.08) {
-                pctEl.classList.add('glitching');
-                setTimeout(() => pctEl.classList.remove('glitching'), 120);
-            }
-
-            if (pct >= steps[stepIdx][0]) {
-                statEl.textContent = steps[stepIdx][1];
-                stepIdx++;
-                if (stepIdx >= steps.length) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        screen.classList.add('done');
-                        setTimeout(() => screen.style.display='none', 650);
-                    }, 300);
-                }
-            }
-        }, 28);
+        setTimeout(() => {
+            screen.classList.add('done');
+            setTimeout(() => screen.style.display='none', 850);
+        }, 1200);
     })();
 
     
