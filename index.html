@@ -2055,25 +2055,6 @@
                 <button class="admin-btn" id="adminUnlock">Desbloquear</button>
                 <button class="admin-btn danger" style="margin-top:8px" id="adminReset">Reset Todo</button>
             </div>
-            <!-- MVP Semana -->
-            <div class="admin-card">
-                <div class="admin-card-title">MVP de la Semana</div>
-                <div class="admin-field">
-                    <label class="admin-label">Seleccionar MVP</label>
-                    <select class="admin-select" id="mvpSelect">
-                        <option value="alex-founder">ALEX</option>
-                        <option value="cesar-cofounder">CÉSAR</option>
-                        <option value="leyoner">LAYONER</option>
-                        <option value="jhonny">JHONNY</option>
-                        <option value="steven">STEVEN</option>
-                    </select>
-                </div>
-                <div class="admin-field">
-                    <label class="admin-label">Semana</label>
-                    <input class="admin-input" id="mvpWeek" placeholder="Semana 1 · Mar 2026">
-                </div>
-                <button class="admin-btn" id="adminSetMvp">Establecer MVP</button>
-            </div>
         </div>
     </div>
 </div>
@@ -3310,7 +3291,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'nav-home':'Inicio','nav-leadership':'Staff y Liderazgo','nav-team':'Equipo',
             'nav-history':'Historia','nav-members':'Miembros','nav-social':'Social',
             'nav-tourneys':'Torneos','nav-achievements':'Logros','nav-news':'Noticias',
-            'nav-mvp':'MVP','nav-activity':'Actividad',
+            'nav-activity':'Actividad',
             'hero-sub':'Elite Esports Clan · LATAM',
             'recruit-text':'Reclutando · Temporada 1','recruit-badge':'ABIERTO',
             'join-title':'⚔ ÚNETE A MONSTER KOI',
@@ -3324,14 +3305,13 @@ document.addEventListener('DOMContentLoaded', function() {
             'section-tourneys':'Torneos',
             'section-achievements':'Logros',
             'section-news':'Noticias del Clan',
-            'section-mvp':'MVP de la Semana',
             'section-activity':'Actividad del Clan',
         },
         en: {
             'nav-home':'Home','nav-leadership':'Leadership','nav-team':'Team',
             'nav-history':'History','nav-members':'Members','nav-social':'Social',
             'nav-tourneys':'Tournaments','nav-achievements':'Achievements','nav-news':'News',
-            'nav-mvp':'MVP','nav-activity':'Activity',
+            'nav-activity':'Activity',
             'hero-sub':'Elite Esports Clan · LATAM',
             'recruit-text':'Recruiting · Season 1','recruit-badge':'OPEN',
             'join-title':'⚔ JOIN MONSTER KOI',
@@ -3345,7 +3325,6 @@ document.addEventListener('DOMContentLoaded', function() {
             'section-tourneys':'Tournaments',
             'section-achievements':'Achievements',
             'section-news':'Clan News',
-            'section-mvp':'MVP of the Week',
             'section-activity':'Clan Activity',
         }
     };
@@ -3585,82 +3564,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     renderAchievements();
 
-    /* ══════════════════════════════════════════════
-       MVP SYSTEM
-    ══════════════════════════════════════════════ */
-    const mvpPlayers = [
-        { key:'alex-founder',    name:'MKOI ◆ ALEX',   photo:'https://i.imgur.com/4NJAJhm.jpg' },
-        { key:'cesar-cofounder', name:'MKOI ◆ CÉSAR',  photo:'https://i.imgur.com/ildafqy.jpg' },
-        { key:'leyoner',         name:'MKOI ◆ LAYONER',photo:'https://i.imgur.com/ovyofCt.jpg' },
-        { key:'jhonny',          name:'MKOI ◆ JHONNY', photo:'https://i.imgur.com/F5DKjNZ.jpg' },
-        { key:'steven',          name:'MKOI ◆ STEVEN', photo:'https://i.imgur.com/s1NAbe2.jpg' },
-    ];
 
-    function renderMVP() {
-        const mvpData    = Store.get('mvpData',    { key:'alex-founder', week:'Semana 1 · Mar 2026' });
-        const mvpHistory = Store.get('mvpHistory', [{ key:'alex-founder', week:'Semana 1 · Mar 2026' }]);
-        const votes      = Store.get('mvpVotes',   {});
-        const voted      = Store.get('mvpVoted',   false);
-
-        const p = mvpPlayers.find(p => p.key === mvpData.key) || mvpPlayers[0];
-        document.getElementById('mvpPhoto').src        = p.photo;
-        document.getElementById('mvpName').textContent  = p.name;
-        document.getElementById('mvpWeekLabel').textContent = mvpData.week;
-
-        // Vote bars
-        const barsEl = document.getElementById('mvpVotesBars');
-        const total  = Object.values(votes).reduce((a,b)=>a+b,0) || 1;
-        barsEl.innerHTML = mvpPlayers.map(pl => {
-            const v   = votes[pl.key] || 0;
-            const pct = Math.round(v / total * 100);
-            return `<div class="vote-row">
-                <div class="vote-name">${pl.name.replace('MKOI ◆ ','')}</div>
-                <div class="vote-bar-wrap"><div class="vote-bar-fill" style="width:${pct}%"></div></div>
-                <div class="vote-count">${v}</div>
-            </div>`;
-        }).join('');
-
-        // Vote buttons
-        const btnsEl = document.getElementById('mvpVoteBtns');
-        btnsEl.innerHTML = mvpPlayers.map(pl =>
-            `<button class="vote-btn ${voted && votes[pl.key] ? 'voted':''}" data-vote="${pl.key}">${pl.name.replace('MKOI ◆ ','')}</button>`
-        ).join('');
-        btnsEl.querySelectorAll('.vote-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (Store.get('mvpVoted', false)) return showToast('Ya votaste esta semana');
-                const v = Store.get('mvpVotes', {});
-                v[btn.dataset.vote] = (v[btn.dataset.vote]||0) + 1;
-                Store.set('mvpVotes', v);
-                Store.set('mvpVoted', true);
-                showToast('✓ Voto registrado');
-                renderMVP();
-            });
-        });
-
-        // History
-        const histEl = document.getElementById('mvpHistory');
-        histEl.innerHTML = mvpHistory.map(h => {
-            const hp = mvpPlayers.find(p=>p.key===h.key)||mvpPlayers[0];
-            return `<div class="mvp-history-item">
-                <div class="mvp-hist-week">${h.week}</div>
-                <div class="mvp-hist-img"><img src="${hp.photo}" alt="${hp.name}"></div>
-                <div class="mvp-hist-name">${hp.name.replace('MKOI ◆ ','')}</div>
-            </div>`;
-        }).join('');
-    }
-    renderMVP();
-
-    // Admin set MVP
-    document.getElementById('adminSetMvp').addEventListener('click', () => {
-        const key  = document.getElementById('mvpSelect').value;
-        const week = document.getElementById('mvpWeek').value.trim() || 'Semana · ' + new Date().toLocaleDateString('es-SV',{month:'short',year:'numeric'});
-        Store.set('mvpData', { key, week });
-        const hist = Store.get('mvpHistory', []);
-        if (!hist.find(h=>h.week===week)) { hist.unshift({ key, week }); Store.set('mvpHistory', hist); }
-        Store.set('mvpVotes', {}); Store.set('mvpVoted', false);
-        renderMVP();
-        showToast('✓ MVP establecido');
-    });
 
 
 
@@ -3845,7 +3749,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Lazy load secciones pesadas solo cuando se visitan
-        const heavySections = ['members','mvp','achievements'];
+        const heavySections = ['members','achievements'];
         heavySections.forEach(id => {
             const sec = document.getElementById(id);
             if (sec) sec.style.contentVisibility = 'auto';
