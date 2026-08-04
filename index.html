@@ -143,31 +143,15 @@
             to   { opacity:1; transform:translateY(0); }
         }
         .nav-container {
-            max-width:1000px; margin:0 auto;
-            display:grid;
-            grid-template-columns: repeat(7, 1fr);
-            border-bottom:1px solid rgba(255,215,0,.08);
+            max-width:1200px; margin:0 auto;
+            display:flex; flex-wrap:nowrap;
+            overflow-x:auto; overflow-y:hidden;
+            -webkit-overflow-scrolling:touch;
+            scrollbar-width:none;
         }
-        .nav-row-2 {
-            max-width:1000px; margin:0 auto;
-            display:grid;
-            grid-template-columns: repeat(5, 1fr);
-        }
+        .nav-container::-webkit-scrollbar { display:none; }
+        .nav-btn { flex:0 0 auto; }
         @media (max-width:600px) {
-            .nav-container {
-                display:flex; overflow-x:auto; overflow-y:hidden;
-                -webkit-overflow-scrolling:touch;
-                scrollbar-width:none;
-                grid-template-columns:unset;
-            }
-            .nav-container::-webkit-scrollbar { display:none; }
-            .nav-row-2 {
-                display:flex; overflow-x:auto; overflow-y:hidden;
-                -webkit-overflow-scrolling:touch;
-                scrollbar-width:none;
-                grid-template-columns:unset;
-            }
-            .nav-row-2::-webkit-scrollbar { display:none; }
             .nav-btn { min-width:68px; flex-shrink:0; }
         }
         .nav-btn {
@@ -560,8 +544,6 @@
             .logo-img { width:180px; height:180px; }
             .stats-grid { gap:10px; }
             .stat-number { font-size:2rem; }
-            .nav-container { grid-template-columns: repeat(4, 1fr); gap:2px; }
-            .nav-container-row2 { grid-template-columns: repeat(4, 1fr); gap:2px; }
             .nav-btn { padding:8px 4px 7px; font-size:.52rem; gap:3px; }
             .nav-btn .nav-icon { width:16px; height:16px; }
             .flip-card { height:360px; width:100%; max-width:320px; margin:0 auto; }
@@ -2077,7 +2059,6 @@
 
     <!-- NAV -->
     <nav class="main-nav">
-        <!-- FILA 1 -->
         <div class="nav-container">
             <button class="nav-btn active" data-section="home">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -2107,9 +2088,6 @@
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                 <span class="nav-text">Colabs</span>
             </button>
-        </div>
-        <!-- FILA 2 -->
-        <div class="nav-row-2">
             <button class="nav-btn" data-section="tourneys">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4H4l1 7h14l1-7h-3"/><path d="M5 11c0 3.31 3.13 6 7 6s7-2.69 7-6"/></svg>
                 <span class="nav-text">Torneos</span>
