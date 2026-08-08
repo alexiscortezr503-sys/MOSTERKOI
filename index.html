@@ -668,6 +668,9 @@
            GLITCH EN HERO TITLE
         ══════════════════════════════════════════ */
         .hero-title { position:relative; }
+        .hero-title.glitch {
+            animation:titleGlow 3s ease-in-out infinite, glitchJitter .4s linear;
+        }
         .hero-title.glitch::before,
         .hero-title.glitch::after {
             content:attr(data-text);
@@ -677,16 +680,19 @@
             letter-spacing:inherit; color:var(--gold);
         }
         .hero-title.glitch::before {
-            text-shadow:-2px 0 #ff003c;
+            text-shadow:-4px 0 #ff003c;
             clip:rect(44px,450px,56px,0);
-            animation:glitch1 .15s linear;
+            animation:glitch1 .4s linear;
         }
         .hero-title.glitch::after {
-            text-shadow:2px 0 #00fff9;
+            text-shadow:4px 0 #00fff9;
             clip:rect(24px,450px,36px,0);
-            animation:glitch2 .15s linear;
+            animation:glitch2 .4s linear;
         }
         .hero-tagline { position:relative; }
+        .hero-tagline.glitch {
+            animation:glitchJitter .4s linear;
+        }
         .hero-tagline.glitch::before,
         .hero-tagline.glitch::after {
             content:attr(data-text);
@@ -698,14 +704,26 @@
             background:#050505;
         }
         .hero-tagline.glitch::before {
-            text-shadow:-2px 0 #ff003c;
+            text-shadow:-3px 0 #ff003c;
             clip:rect(4px,520px,14px,0);
-            animation:glitch1 .15s linear;
+            animation:glitch1 .4s linear;
         }
         .hero-tagline.glitch::after {
-            text-shadow:2px 0 #00fff9;
+            text-shadow:3px 0 #00fff9;
             clip:rect(14px,520px,24px,0);
-            animation:glitch2 .15s linear;
+            animation:glitch2 .4s linear;
+        }
+        @keyframes glitchJitter {
+            0%,100% { transform:translate(0,0); }
+            10% { transform:translate(-3px,1px); }
+            20% { transform:translate(3px,-1px); }
+            30% { transform:translate(-2px,0); }
+            40% { transform:translate(2px,1px); }
+            50% { transform:translate(-3px,-1px); }
+            60% { transform:translate(3px,0); }
+            70% { transform:translate(-1px,1px); }
+            80% { transform:translate(2px,-1px); }
+            90% { transform:translate(-1px,0); }
         }
         @keyframes glitch1 {
             0%   { clip:rect(10px,9999px,30px,0); transform:skew(.4deg); }
@@ -3185,15 +3203,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    /* ── GLITCH EN HERO TITLE ────────────────── */
-    /* (desactivado) */
-
-    /* ── GLITCH EN TAGLINE ───────────────────── */
+    /* ── GLITCH EN HERO TITLE + TAGLINE ──────── */
+    const heroTitle   = document.getElementById('heroTitle');
     const heroTagline = document.getElementById('heroTagline');
-    if (heroTagline) {
+    if (heroTitle || heroTagline) {
         setInterval(() => {
-            heroTagline.classList.add('glitch');
-            setTimeout(() => heroTagline.classList.remove('glitch'), 200);
+            if (heroTitle)   heroTitle.classList.add('glitch');
+            if (heroTagline) heroTagline.classList.add('glitch');
+            setTimeout(() => {
+                if (heroTitle)   heroTitle.classList.remove('glitch');
+                if (heroTagline) heroTagline.classList.remove('glitch');
+            }, 420);
         }, 4000 + Math.random() * 3000);
     }
 
