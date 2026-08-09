@@ -75,20 +75,34 @@
             padding:36px 24px 48px; overflow:hidden;
             display:flex; align-items:center; justify-content:space-between;
             flex-wrap:wrap; gap:24px;
-            background:linear-gradient(to bottom,
-                rgba(4,4,4,.92) 0%,
-                rgba(6,6,6,.85) 60%,
-                rgba(6,6,6,.82) 100%
+            background:#050505;
+        }
+        .hero-banners { position:absolute; inset:0; z-index:0; overflow:hidden; }
+        .hero-banner-img {
+            position:absolute; inset:0;
+            width:100%; height:100%;
+            object-fit:cover; object-position:center 20%;
+            opacity:0;
+            transition:opacity 1.4s ease;
+        }
+        .hero-banner-img.active { opacity:1; }
+        .hero-overlay {
+            position:absolute; inset:0; z-index:1;
+            background:linear-gradient(90deg,
+                rgba(4,4,4,.95) 0%,
+                rgba(4,4,4,.8) 32%,
+                rgba(4,4,4,.4) 62%,
+                rgba(4,4,4,.6) 100%
             );
         }
-        .hero-text { flex:1 1 320px; min-width:280px; }
+        .hero-text { flex:1 1 320px; min-width:280px; position:relative; z-index:2; }
         .hero::after {
             content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
             background:linear-gradient(90deg, transparent, var(--gold), transparent);
         }
 
         /* Koi scene behind logo */
-        .koi-scene { display:inline-block; margin-bottom:14px; margin-right:28px; }
+        .koi-scene { display:inline-block; margin-bottom:14px; margin-right:28px; position:relative; z-index:2; }
 
         .logo-img {
             width:280px; height:280px; border-radius:0; object-fit:contain;
@@ -2099,6 +2113,28 @@
 
     <!-- HERO -->
     <header class="hero">
+        <div class="hero-banners">
+            <img src="banners/banner01.png" class="hero-banner-img" alt="" loading="eager">
+            <img src="banners/banner02.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner03.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner04.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner05.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner06.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner07.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner08.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner09.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner10.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner11.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner12.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner13.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner14.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner15.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner16.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner17.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner18.png" class="hero-banner-img" alt="" loading="lazy">
+            <img src="banners/banner19.png" class="hero-banner-img" alt="" loading="lazy">
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-text">
             <h1 class="hero-title" id="heroTitle" data-text="MONSTER KOI">MONSTER KOI</h1>
             <p class="hero-tagline" id="heroTagline" data-text="Las kills adornan la pantalla; la inteligencia gana los torneos.
@@ -3202,6 +3238,19 @@ document.addEventListener('DOMContentLoaded', function() {
             smokeContainer.appendChild(puff);
         }
     }
+
+    /* ── CARRUSEL DE BANNERS DEL HERO ────────── */
+    (function() {
+        const banners = document.querySelectorAll('.hero-banner-img');
+        if (!banners.length) return;
+        let idx = 0;
+        banners[0].classList.add('active');
+        setInterval(() => {
+            banners[idx].classList.remove('active');
+            idx = (idx + 1) % banners.length;
+            banners[idx].classList.add('active');
+        }, 5000);
+    })();
 
     /* ── GLITCH EN HERO TITLE + TAGLINE ──────── */
     const heroTitle   = document.getElementById('heroTitle');
