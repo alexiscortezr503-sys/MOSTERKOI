@@ -695,74 +695,24 @@
 
 
         /* ══════════════════════════════════════════
-           GLITCH EN HERO TITLE
+           PARPADEO EN HERO TITLE
         ══════════════════════════════════════════ */
         .hero-title { position:relative; }
         .hero-title.glitch {
-            animation:titleGlowGreen 3s ease-in-out infinite, glitchJitter .25s linear;
-        }
-        .hero-title.glitch::before,
-        .hero-title.glitch::after {
-            content:attr(data-text);
-            position:absolute; top:0; left:0; width:100%;
-            font-family:'Orbitron',monospace;
-            font-size:inherit; font-weight:900;
-            letter-spacing:inherit; color:#0A0A0A;
-        }
-        .hero-title.glitch::before {
-            text-shadow:-1.5px 0 #ff003c;
-            clip:rect(44px,450px,56px,0);
-            animation:glitch1 .25s linear;
-        }
-        .hero-title.glitch::after {
-            text-shadow:1.5px 0 #00fff9;
-            clip:rect(24px,450px,36px,0);
-            animation:glitch2 .25s linear;
+            animation:titleGlowGreen 3s ease-in-out infinite, simpleFlicker .7s linear;
         }
         .hero-tagline { position:relative; }
         .hero-tagline.glitch {
-            animation:glitchJitter .25s linear;
+            animation:simpleFlicker .7s linear;
         }
-        .hero-tagline.glitch::before,
-        .hero-tagline.glitch::after {
-            content:attr(data-text);
-            position:absolute; top:0; left:0; width:100%;
-            font-family:'Rajdhani',sans-serif;
-            font-size:inherit; font-weight:inherit;
-            letter-spacing:inherit; line-height:inherit; color:#444;
-            white-space:pre-line;
-            background:#ffffff;
-        }
-        .hero-tagline.glitch::before {
-            text-shadow:-1.5px 0 #ff003c;
-            clip:rect(4px,520px,14px,0);
-            animation:glitch1 .25s linear;
-        }
-        .hero-tagline.glitch::after {
-            text-shadow:1.5px 0 #00fff9;
-            clip:rect(14px,520px,24px,0);
-            animation:glitch2 .25s linear;
-        }
-        @keyframes glitchJitter {
-            0%,100% { transform:translate(0,0); }
-            25% { transform:translate(-1px,0); }
-            50% { transform:translate(1px,0); }
-            75% { transform:translate(-1px,0); }
-        }
-        @keyframes glitch1 {
-            0%   { clip:rect(10px,9999px,30px,0); transform:skew(.4deg); }
-            20%  { clip:rect(60px,9999px,80px,0); transform:skew(.1deg); }
-            40%  { clip:rect(5px,9999px,20px,0);  transform:skew(.5deg); }
-            60%  { clip:rect(40px,9999px,55px,0); transform:skew(.2deg); }
-            80%  { clip:rect(25px,9999px,40px,0); transform:skew(.3deg); }
-            100% { clip:rect(55px,9999px,70px,0); transform:skew(.1deg); }
-        }
-        @keyframes glitch2 {
-            0%   { clip:rect(30px,9999px,50px,0); transform:skew(-.4deg); }
-            25%  { clip:rect(15px,9999px,35px,0); transform:skew(-.2deg); }
-            50%  { clip:rect(50px,9999px,65px,0); transform:skew(-.5deg); }
-            75%  { clip:rect(8px, 9999px,22px,0); transform:skew(-.1deg); }
-            100% { clip:rect(35px,9999px,48px,0); transform:skew(-.3deg); }
+        @keyframes simpleFlicker {
+            0%,100% { opacity:1; }
+            8%  { opacity:.2; }
+            14% { opacity:1; }
+            22% { opacity:.15; }
+            28% { opacity:1; }
+            72% { opacity:.3; }
+            78% { opacity:1; }
         }
 
         /* ══════════════════════════════════════════
@@ -3272,7 +3222,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 if (heroTitle)   heroTitle.classList.remove('glitch');
                 if (heroTagline) heroTagline.classList.remove('glitch');
-            }, 270);
+            }, 700);
         }, 4000 + Math.random() * 3000);
     }
 
