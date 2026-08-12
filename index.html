@@ -187,7 +187,7 @@
             .esport-carousel { flex-direction:column; }
             .esport-side { flex-direction:row; width:100%; }
             .esport-side-socials { flex-direction:row; }
-            .esport-stage { width:100%; min-height:380px; }
+            .esport-stage { width:100%; min-height:440px; }
         }
         @media (max-width:640px) {
             .hero { padding:28px 18px 32px; justify-content:center; text-align:center; }
@@ -453,8 +453,8 @@
         }
         .esport-arrow:hover { background:#00C853; color:#fff; }
         .esport-counter { font-family:'Orbitron',monospace; font-size:.72rem; color:#555; }
-        .esport-stage { flex:1; position:relative; min-height:360px; display:flex; align-items:center; justify-content:center; }
-        .esport-flip { height:340px; width:100%; max-width:280px; cursor:pointer; perspective:900px; position:absolute; opacity:0; pointer-events:none; transition:opacity .4s ease; }
+        .esport-stage { flex:1; position:relative; min-height:420px; display:flex; align-items:center; justify-content:center; }
+        .esport-flip { height:400px; width:100%; max-width:300px; cursor:pointer; perspective:900px; position:absolute; opacity:0; pointer-events:none; transition:opacity .4s ease; }
         .esport-flip.active { opacity:1; pointer-events:auto; }
         .esport-inner {
             position:relative; width:100%; height:100%;
@@ -464,30 +464,30 @@
         .esport-flip.flipped .esport-inner { transform:rotateY(180deg); }
         .esport-front, .esport-back {
             position:absolute; inset:0; backface-visibility:hidden;
-            border-radius:12px; padding:18px 14px; text-align:center;
+            border-radius:12px; padding:26px 20px; text-align:center;
             background:#ffffff; border:1px solid rgba(0,200,83,.25);
             box-shadow:0 4px 18px rgba(0,0,0,.1);
-            display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+            display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
         }
         .esport-back { transform:rotateY(180deg); background:#f8f8f8; }
-        .esport-photo { width:120px; height:150px; border-radius:12px; overflow:hidden; border:2px solid #00C853; box-shadow:0 0 12px rgba(0,200,83,.3); }
+        .esport-photo { width:150px; height:185px; border-radius:14px; overflow:hidden; border:3px solid #00C853; box-shadow:0 0 16px rgba(0,200,83,.35); }
         .esport-photo-empty {
             display:flex; align-items:center; justify-content:center;
             background:#f0f0f0; border-color:rgba(0,200,83,.2) !important;
-            box-shadow:none !important; font-size:2.2rem; color:#ccc; font-family:'Orbitron',monospace;
+            box-shadow:none !important; font-size:3rem; color:#ccc; font-family:'Orbitron',monospace;
         }
         .esport-photo img { width:100%; height:100%; object-fit:cover; }
-        .esport-realname { font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:700; color:#111; }
-        .esport-tag { font-family:'Orbitron',monospace; font-size:.68rem; color:#00A844; letter-spacing:.05em; }
-        .esport-uid { font-size:.68rem; color:#888; }
+        .esport-realname { font-family:'Rajdhani',sans-serif; font-size:1.35rem; font-weight:700; color:#111; }
+        .esport-tag { font-family:'Orbitron',monospace; font-size:.88rem; color:#00A844; letter-spacing:.05em; }
+        .esport-uid { font-size:.85rem; color:#888; }
         .esport-role-badge {
-            font-family:'Rajdhani',sans-serif; font-size:.7rem; font-weight:700;
+            font-family:'Rajdhani',sans-serif; font-size:.9rem; font-weight:700;
             color:#00A844; letter-spacing:.1em; text-transform:uppercase;
-            background:rgba(0,200,83,.1); padding:3px 10px; border-radius:20px;
+            background:rgba(0,200,83,.1); padding:5px 16px; border-radius:20px;
         }
-        .esport-char-photo { width:110px; height:110px; object-fit:cover; border-radius:10px; border:1px solid rgba(0,200,83,.3); }
-        .esport-char-name { font-family:'Orbitron',monospace; font-size:.82rem; font-weight:900; color:#111; }
-        .esport-abilities { font-size:.68rem; color:#555; line-height:1.5; }
+        .esport-char-photo { width:140px; height:140px; object-fit:cover; border-radius:12px; border:2px solid rgba(0,200,83,.3); }
+        .esport-char-name { font-family:'Orbitron',monospace; font-size:1.05rem; font-weight:900; color:#111; }
+        .esport-abilities { font-size:.85rem; color:#555; line-height:1.6; }
         .esport-abilities strong { color:#00A844; }
 
         /* ── HISTORY ── */
