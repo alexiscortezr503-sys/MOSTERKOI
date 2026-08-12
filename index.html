@@ -471,6 +471,11 @@
         }
         .esport-back { transform:rotateY(180deg); background:#f8f8f8; }
         .esport-photo { width:120px; height:150px; border-radius:12px; overflow:hidden; border:2px solid #00C853; box-shadow:0 0 12px rgba(0,200,83,.3); }
+        .esport-photo-empty {
+            display:flex; align-items:center; justify-content:center;
+            background:#f0f0f0; border-color:rgba(0,200,83,.2) !important;
+            box-shadow:none !important; font-size:2.2rem; color:#ccc; font-family:'Orbitron',monospace;
+        }
         .esport-photo img { width:100%; height:100%; object-fit:cover; }
         .esport-realname { font-family:'Rajdhani',sans-serif; font-size:1rem; font-weight:700; color:#111; }
         .esport-tag { font-family:'Orbitron',monospace; font-size:.68rem; color:#00A844; letter-spacing:.05em; }
@@ -2992,41 +2997,54 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 40);
     });
 
-    /* ── ESPORT CAROUSEL (6 tarjetas de ejemplo) ── */
+    /* ── ESPORT CAROUSEL (1 demo + 5 vacias) ── */
     const esportStage = document.getElementById('esportStage');
     if (esportStage) {
-        const roster = [
-            { key:'alex-founder',    role:'IGL',           banner:'banner01.png' },
-            { key:'cesar-cofounder', role:'Support',        banner:'banner05.png' },
-            { key:'leyoner',         role:'Fragger',        banner:'banner09.png' },
-            { key:'jhonny',          role:'Sniper',         banner:'banner12.png' },
-            { key:'steven',          role:'Entry Fragger',  banner:'banner15.png' },
-            { key:'alexander',       role:'Fragger',        banner:'banner17.png' },
-        ];
         let esportIdx = 0;
-        const cards = roster.map((r, i) => {
-            const p = players[r.key];
-            const card = document.createElement('div');
-            card.className = 'esport-flip' + (i === 0 ? ' active' : '');
-            card.innerHTML = `
+        const cards = [];
+
+        // Tarjeta 1: demo completa
+        const demo = players['alex-founder'];
+        const demoCard = document.createElement('div');
+        demoCard.className = 'esport-flip active';
+        demoCard.innerHTML = `
+            <div class="esport-inner">
+                <div class="esport-front">
+                    <div class="esport-photo"><img src="${demo.foto}" alt="${demo.realName}"></div>
+                    <div class="esport-realname">${demo.realName}</div>
+                    <div class="esport-tag">${demo.name}</div>
+                    <div class="esport-uid">ID: ${demo.uid}</div>
+                </div>
+                <div class="esport-back">
+                    <div class="esport-role-badge">IGL</div>
+                    <img src="banners/banner01.png" class="esport-char-photo" alt="Personaje">
+                    <div class="esport-char-name">Por definir</div>
+                    <div class="esport-abilities"><strong>Pasiva:</strong> Por definir<br><strong>Activa:</strong> Por definir</div>
+                </div>
+            </div>`;
+        demoCard.addEventListener('click', () => demoCard.classList.toggle('flipped'));
+        esportStage.appendChild(demoCard);
+        cards.push(demoCard);
+
+        // Tarjetas 2-6: vacias
+        for (let i = 0; i < 5; i++) {
+            const empty = document.createElement('div');
+            empty.className = 'esport-flip';
+            empty.innerHTML = `
                 <div class="esport-inner">
                     <div class="esport-front">
-                        <div class="esport-photo"><img src="${p.foto}" alt="${p.realName}"></div>
-                        <div class="esport-realname">${p.realName}</div>
-                        <div class="esport-tag">${p.name}</div>
-                        <div class="esport-uid">ID: ${p.uid}</div>
+                        <div class="esport-photo esport-photo-empty">?</div>
+                        <div class="esport-realname" style="color:#999">Por definir</div>
+                        <div class="esport-tag" style="color:#aaa">Slot disponible</div>
                     </div>
                     <div class="esport-back">
-                        <div class="esport-role-badge">${r.role}</div>
-                        <img src="banners/${r.banner}" class="esport-char-photo" alt="Personaje">
-                        <div class="esport-char-name">Por definir</div>
-                        <div class="esport-abilities"><strong>Pasiva:</strong> Por definir<br><strong>Activa:</strong> Por definir</div>
+                        <div class="esport-role-badge" style="background:rgba(0,0,0,.05);color:#999">Por definir</div>
                     </div>
                 </div>`;
-            card.addEventListener('click', () => card.classList.toggle('flipped'));
-            esportStage.appendChild(card);
-            return card;
-        });
+            empty.addEventListener('click', () => empty.classList.toggle('flipped'));
+            esportStage.appendChild(empty);
+            cards.push(empty);
+        }
 
         const counter = document.getElementById('esportCounter');
         function updateEsportView() {
