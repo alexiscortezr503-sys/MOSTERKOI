@@ -2055,24 +2055,6 @@
                 </div>
                 <button class="admin-btn" id="adminAddNews">Publicar Noticia</button>
             </div>
-            <!-- Agregar actividad -->
-            <div class="admin-card">
-                <div class="admin-card-title">Nueva Actividad</div>
-                <div class="admin-field">
-                    <label class="admin-label">Descripción (usa **nombre** para destacar)</label>
-                    <textarea class="admin-textarea" id="activityText" placeholder="**ALEX** ganó una partida ranked..."></textarea>
-                </div>
-                <div class="admin-field">
-                    <label class="admin-label">Categoría</label>
-                    <select class="admin-select" id="activityTag">
-                        <option value="tag-clan">Clan</option>
-                        <option value="tag-roster">Roster</option>
-                        <option value="tag-torneo">Torneo</option>
-                        <option value="tag-logro">Logro</option>
-                    </select>
-                </div>
-                <button class="admin-btn" id="adminAddActivity">Agregar Actividad</button>
-            </div>
             <!-- Agregar torneo -->
             <div class="admin-card">
                 <div class="admin-card-title">Nuevo Torneo</div>
@@ -2163,10 +2145,6 @@ Estrategia. Disciplina. Victoria.</p>
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 <span class="nav-text">Inicio</span>
             </button>
-            <button class="nav-btn" data-section="leadership">
-                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"/><path d="M5 21h14"/></svg>
-                <span class="nav-text">Liderazgo</span>
-            </button>
             <button class="nav-btn" data-section="team">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                 <span class="nav-text">ESPORT</span>
@@ -2174,10 +2152,6 @@ Estrategia. Disciplina. Victoria.</p>
             <button class="nav-btn" data-section="history">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span class="nav-text">Historia</span>
-            </button>
-            <button class="nav-btn" data-section="members">
-                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                <span class="nav-text">Miembros</span>
             </button>
             <button class="nav-btn" data-section="social">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -2198,10 +2172,6 @@ Estrategia. Disciplina. Victoria.</p>
             <button class="nav-btn" data-section="news">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 002-2V4a2 2 0 00-2-2H8a2 2 0 00-2 2v16a2 2 0 01-2 2zm0 0a2 2 0 01-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>
                 <span class="nav-text">Noticias</span>
-            </button>
-            <button class="nav-btn" data-section="activity">
-                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                <span class="nav-text">Actividad</span>
             </button>
         </div>
     </nav>
@@ -2289,11 +2259,6 @@ Estrategia. Disciplina. Victoria.</p>
         </section>
 
         <!-- LEADERSHIP -->
-        <section id="leadership" class="content-section">
-            <h2 class="section-title">Liderazgo</h2>
-            <div class="leaders-grid" id="leadersGrid"></div>
-        </section>
-
         <!-- TEAM -->
         <section id="team" class="content-section">
             <h2 class="section-title">ESPORT</h2>
@@ -2356,11 +2321,6 @@ Estrategia. Disciplina. Victoria.</p>
         </section>
 
         <!-- MEMBERS -->
-        <section id="members" class="content-section">
-            <h2 class="section-title">Lista de Miembros</h2>
-            <div class="members-list" id="membersList"></div>
-        </section>
-
         <!-- SOCIAL -->
         <section id="social" class="content-section">
             <h2 class="section-title">Redes Sociales</h2>
@@ -2621,11 +2581,6 @@ Estrategia. Disciplina. Victoria.</p>
         </section>
 
         <!-- MVP -->
-        <section id="activity" class="content-section">
-            <h2 class="section-title">Actividad del Clan</h2>
-            <div class="activity-feed" id="activityFeed"></div>
-        </section>
-
         <!-- BANNER ALIANZAS -->
         <section id="collab" class="content-section">
             <div style="overflow:hidden;position:relative;margin-bottom:32px;padding:18px 0;border-top:1px solid rgba(255,215,0,.08);border-bottom:1px solid rgba(255,215,0,.08);">
@@ -2994,51 +2949,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 40);
     });
 
-    /* ── BUILD FLIP LEADERS ────────────────────── */
-    const leadersGrid = document.getElementById('leadersGrid');
-    const leaders = [
-        { key:'alex-founder',
-          bio:'Coach · Analista · Psicólogo Deportivo<br>El mejor IGL de El Salvador con trayectoria en Free Fire, Apex Legends, PUBG y Blood Strike.' },
-        { key:'cesar-cofounder',
-          bio:'Co-fundador de Monster Koi desde el 10 de septiembre de 2025.<br>Pilar fundamental del proyecto desde el día uno.' }
-    ];
-    leaders.forEach(l => {
-        const p = players[l.key];
-        const card = document.createElement('div');
-        card.className = 'flip-card';
-        card.innerHTML = `
-            <div class="flip-inner">
-                <div class="flip-front">
-                    <div class="verified-gold"></div>
-                    <div class="leader-photo"><img src="${p.foto}" alt="${p.name}"></div>
-                    <div class="leader-name">${p.name}</div>
-                    <div class="leader-role">${p.role}</div>
-                    <div class="leader-bio">ID: ${p.uid}<br>${l.bio}</div>
-                    <p class="flip-hint">↻ ${isTouchDevice ? 'Tap para ver perfil' : 'Hover para ver perfil'}</p>
-                </div>
-                <div class="flip-back">
-                    <div class="verified-gold"></div>
-                    <div class="back-label">Perfil del Juego</div>
-                    <img src="${p.perfil}" class="back-profile-img" alt="Perfil">
-                    <div class="back-uid">UID: ${p.uid}</div>
-                    <div class="back-stats">
-                        <div class="back-stat">
-                            <div class="back-stat-label">Rango</div>
-                            <div class="back-stat-val">${p.rank}</div>
-                        </div>
-                        <div class="back-stat">
-                            <div class="back-stat-label">Rol</div>
-                            <div class="back-stat-val">${p.role}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-        leadersGrid.appendChild(card);
-
-        // Touch support for mobile
-        card.addEventListener('click', () => card.classList.toggle('flipped'));
-    });
-
     /* ── BUILD TEAM CARD (ejemplo del nuevo diseño ESPORT) ── */
     const teamGrid = document.getElementById('teamGrid');
     if (teamGrid) {
@@ -3063,8 +2973,7 @@ document.addEventListener('DOMContentLoaded', function() {
         teamGrid.appendChild(example);
     }
 
-    /* ── BUILD MEMBERS FLIP ────────────────────── */
-    const membersList = document.getElementById('membersList');
+    /* Datos de miembros conservados por si se reutilizan luego */
     const coreMembers = [
         { key:'alex-founder',    gold:true,  uid:'276784842079', label:'Fundador' },
         { key:'cesar-cofounder', gold:true,  uid:'276783870928', label:'Co-Fundador' },
@@ -3081,47 +2990,6 @@ document.addEventListener('DOMContentLoaded', function() {
         { key:'axel',            gold:false, uid:'275710457123', label:'Integrante' },
         { key:'josua',           gold:false, uid:'276789548163', label:'Integrante' }
     ];
-    coreMembers.forEach(m => {
-        const p = players[m.key];
-        const flip = document.createElement('div');
-        flip.className = 'member-flip' + (m.gold ? ' is-gold' : '');
-        flip.innerHTML = `
-            <div class="member-inner">
-                <div class="member-front">
-                    ${m.gold ? '<div class="verified-gold"></div>' : ''}
-                    <div class="member-photo"><img src="${p.foto}" alt="${p.name}"></div>
-                    <div class="member-name">${p.name}</div>
-                    <div class="member-id">ID: ${m.uid}<br>${m.label}</div>
-                </div>
-                <div class="member-back">
-                    ${m.gold ? '<div class="verified-gold"></div>' : ''}
-                    <img src="${p.perfil}" class="member-back-perfil" alt="perfil">
-                    <div class="member-back-uid">UID: ${m.uid}</div>
-                    <div class="member-back-rank">${p.rank}</div>
-                    <div class="member-id">${p.role}</div>
-                </div>
-            </div>`;
-        flip.addEventListener('click', () => flip.classList.toggle('flipped'));
-        membersList.appendChild(flip);
-    });
-    for (let i = 1; i <= 16; i++) {
-        const flip = document.createElement('div');
-        flip.className = 'member-flip';
-        const ph = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='68'%3E%3Crect fill='%231C1C1C' width='68' height='68'/%3E%3Ctext x='50%25' y='50%25' font-size='14' text-anchor='middle' dy='.35em' fill='%23444' font-family='monospace'%3EM${String(i).padStart(2,'0')}%3C/text%3E%3C/svg%3E`;
-        flip.innerHTML = `
-            <div class="member-inner">
-                <div class="member-front">
-                    <div class="member-photo"><img src="${ph}" alt="M${i}"></div>
-                    <div class="member-name" style="color:var(--silver-dim)">MKOI ◆ M${String(i).padStart(2,'0')}</div>
-                    <div class="member-id">Por definir</div>
-                </div>
-                <div class="member-back" style="border-color:rgba(192,192,192,.15)">
-                    <div class="member-back-uid" style="font-size:.75rem;color:#555">Slot disponible</div>
-                    <div class="member-id">UID: Por definir</div>
-                </div>
-            </div>`;
-        membersList.appendChild(flip);
-    }
 
         /* ── LIGHTBOX ───────────────────────────────── */
     const lightbox      = document.getElementById('lightbox');
@@ -3425,45 +3293,37 @@ document.addEventListener('DOMContentLoaded', function() {
     ══════════════════════════════════════════════ */
     const TRANSLATIONS = {
         es: {
-            'nav-home':'Inicio','nav-leadership':'Liderazgo','nav-team':'ESPORT',
-            'nav-history':'Historia','nav-members':'Miembros','nav-social':'Social',
+            'nav-home':'Inicio','nav-team':'ESPORT',
+            'nav-history':'Historia','nav-social':'Social',
             'nav-tourneys':'Torneos','nav-achievements':'Logros','nav-news':'Noticias',
-            'nav-activity':'Actividad',
-            'hero-sub':'Elite Esports Clan · LATAM',
+                        'hero-sub':'Elite Esports Clan · LATAM',
             'recruit-text':'Reclutando · Temporada 1','recruit-badge':'ABIERTO',
             'join-title':'⚔ ÚNETE A MONSTER KOI',
             'stat-members':'Miembros','stat-founders':'Fundadores','stat-sponsors':'Sponsors',
             'section-home':'Bienvenido a Monster Koi',
-            'section-leadership':'Liderazgo',
-            'section-team':'ESPORT',
+                        'section-team':'ESPORT',
             'section-history':'Nuestra Historia',
-            'section-members':'Lista de Miembros',
-            'section-social':'Redes Sociales',
+                        'section-social':'Redes Sociales',
             'section-tourneys':'Torneos',
             'section-achievements':'Logros',
             'section-news':'Noticias del Clan',
-            'section-activity':'Actividad del Clan',
-        },
+                    },
         en: {
-            'nav-home':'Home','nav-leadership':'Leadership','nav-team':'ESPORT',
-            'nav-history':'History','nav-members':'Members','nav-social':'Social',
+            'nav-home':'Home','nav-team':'ESPORT',
+            'nav-history':'History','nav-social':'Social',
             'nav-tourneys':'Tournaments','nav-achievements':'Achievements','nav-news':'News',
-            'nav-activity':'Activity',
-            'hero-sub':'Elite Esports Clan · LATAM',
+                        'hero-sub':'Elite Esports Clan · LATAM',
             'recruit-text':'Recruiting · Season 1','recruit-badge':'OPEN',
             'join-title':'⚔ JOIN MONSTER KOI',
             'stat-members':'Members','stat-founders':'Founders','stat-sponsors':'Sponsors',
             'section-home':'Welcome to Monster Koi',
-            'section-leadership':'Clan Leadership',
-            'section-team':'ESPORT',
+                        'section-team':'ESPORT',
             'section-history':'Our Story',
-            'section-members':'Member List',
-            'section-social':'Social Media',
+                        'section-social':'Social Media',
             'section-tourneys':'Tournaments',
             'section-achievements':'Achievements',
             'section-news':'Clan News',
-            'section-activity':'Clan Activity',
-        }
+                    }
     };
     let currentLang = Store.get('lang', 'es');
 
@@ -3595,42 +3455,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     renderNews();
-
-    // Add activity
-    document.getElementById('adminAddActivity').addEventListener('click', () => {
-        const raw = document.getElementById('activityText').value.trim();
-        const tag = document.getElementById('activityTag').value;
-        if (!raw) return showToast('⚠ Escribí la actividad');
-        const acts = Store.get('activities', []);
-        acts.unshift({ raw, tag, date: new Date().toLocaleString('es-SV',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) });
-        Store.set('activities', acts);
-        renderActivities();
-        document.getElementById('activityText').value = '';
-        showToast('✓ Actividad agregada');
-    });
-
-    function renderActivities() {
-        const feed  = document.getElementById('activityFeed');
-        const acts  = Store.get('activities', defaultActivities);
-        feed.innerHTML = '';
-        acts.forEach(a => {
-            const item = document.createElement('div');
-            item.className = 'activity-item';
-            const text = a.raw.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-            item.innerHTML = `<div class="activity-time">${a.date}</div><div class="activity-text">${text}</div><span class="activity-tag ${a.tag}">${a.tag.replace('tag-','').toUpperCase()}</span>`;
-            feed.appendChild(item);
-        });
-        if (!acts.length) feed.innerHTML = '<div style="color:#888;font-size:.95rem;padding:20px 0">Sin actividad registrada aún.</div>';
-    }
-
-    const defaultActivities = [
-        { raw:'**Monster Koi** lanza su web oficial — primera organización de Blood Strike en El Salvador con presencia digital propia.', tag:'tag-clan', date:'07 Mar 2026' },
-        { raw:'**Monster Koi** reestructura su roster buscando los jugadores más comprometidos para la Temporada 1.', tag:'tag-roster', date:'04 Mar 2026' },
-        { raw:'**Monster Koi** formaliza colaboración con **ARCADE: El Principio**, app oficial asociada al clan.', tag:'tag-logro', date:'06 Mar 2026' },
-        
-        { raw:'**ALEX** y **CÉSAR** fundan Monster Koi el 23 de septiembre de 2025 con visión de élite en LATAM.', tag:'tag-clan', date:'23 Sep 2025' },
-    ];
-    renderActivities();
 
     // Add tourney
     document.getElementById('adminAddTourney').addEventListener('click', () => {
