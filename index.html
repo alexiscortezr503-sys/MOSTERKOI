@@ -1856,6 +1856,34 @@
             filter:grayscale(1);
         }
 
+        /* ── LOGROS: tema blanco/verde ── */
+        #achievements.content-section {
+            background:#ffffff; padding:32px 24px; border-radius:16px;
+            box-shadow:0 4px 30px rgba(0,0,0,.25);
+        }
+        #achievements .section-title { color:#0A0A0A; text-shadow:none; }
+        #achievements .section-title::before { background:linear-gradient(90deg, #00C853, rgba(0,200,83,.15), transparent); }
+        #achievements .section-title::after { background:linear-gradient(90deg, #00C853, rgba(0,200,83,.3)); }
+        #achievements .days-counter { background:#f6f6f6; border-color:rgba(0,200,83,.25); }
+        #achievements .days-number { color:#00A844; text-shadow:0 0 24px rgba(0,200,83,.35); }
+        #achievements .days-label { color:#888; }
+        #achievements .days-date { color:#777; }
+        #achievements .achievement-card {
+            background:#f6f6f6; border-color:rgba(0,200,83,.15);
+            box-shadow:0 4px 14px rgba(0,0,0,.06);
+        }
+        #achievements .achievement-card:not(.locked):hover {
+            border-color:#00C853; box-shadow:0 8px 24px rgba(0,200,83,.15);
+        }
+        #achievements .achievement-card::before { background:linear-gradient(90deg,transparent,#00C853,transparent); }
+        #achievements .achievement-icon-wrap { background:rgba(0,200,83,.08); border-color:rgba(0,200,83,.2); }
+        #achievements .achievement-card:not(.locked):hover .achievement-icon-wrap {
+            background:rgba(0,200,83,.16); border-color:rgba(0,200,83,.4); box-shadow:0 0 16px rgba(0,200,83,.2);
+        }
+        #achievements .achievement-name { color:#111; }
+        #achievements .achievement-desc { color:#555; }
+        #achievements .achievement-locked-label { color:#999; }
+
         /* ── MVP — tarjeta principal rediseñada ── */
         .mvp-week-card {
             background:rgba(8,8,8,.75);
@@ -2574,7 +2602,7 @@ Estrategia. Disciplina. Victoria.</p>
                 <div class="achievement-card reveal">
                     <div class="achievement-card-header">
                         <div class="achievement-icon-wrap">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M3 10l9-7 9 7"/><path d="M9 21V14h6v7"/></svg>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="10" width="18" height="11" rx="1"/><path d="M3 10l9-7 9 7"/><path d="M9 21V14h6v7"/></svg>
                         </div>
                         <div class="achievement-name">Fundadores</div>
                     </div>
@@ -2583,7 +2611,7 @@ Estrategia. Disciplina. Victoria.</p>
                 <div class="achievement-card reveal reveal-delay-1">
                     <div class="achievement-card-header">
                         <div class="achievement-icon-wrap">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
                         </div>
                         <div class="achievement-name">Presencia Digital</div>
                     </div>
@@ -2592,7 +2620,7 @@ Estrategia. Disciplina. Victoria.</p>
                 <div class="achievement-card locked reveal reveal-delay-2">
                     <div class="achievement-card-header">
                         <div class="achievement-icon-wrap">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
                         </div>
                         <div class="achievement-name">Primera Victoria</div>
                     </div>
@@ -2602,7 +2630,7 @@ Estrategia. Disciplina. Victoria.</p>
                 <div class="achievement-card locked reveal reveal-delay-2">
                     <div class="achievement-card-header">
                         <div class="achievement-icon-wrap">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round"><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
                         </div>
                         <div class="achievement-name">Comunidad en Crecimiento</div>
                     </div>
@@ -2612,7 +2640,7 @@ Estrategia. Disciplina. Victoria.</p>
                 <div class="achievement-card locked reveal reveal-delay-4">
                     <div class="achievement-card-header">
                         <div class="achievement-icon-wrap">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"><path d="M6 2h12v6a6 6 0 0 1-12 0V2z"/><path d="M12 14v4M8 21h8"/></svg>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round"><path d="M6 2h12v6a6 6 0 0 1-12 0V2z"/><path d="M12 14v4M8 21h8"/></svg>
                         </div>
                         <div class="achievement-name">Primer Torneo</div>
                     </div>
@@ -2622,7 +2650,7 @@ Estrategia. Disciplina. Victoria.</p>
                 <div class="achievement-card locked reveal reveal-delay-4">
                     <div class="achievement-card-header">
                         <div class="achievement-icon-wrap">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"><path d="M2 20h20M4 20l2-8 6 4 4-10 4 10 2-4 2 8"/></svg>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round"><path d="M2 20h20M4 20l2-8 6 4 4-10 4 10 2-4 2 8"/></svg>
                         </div>
                         <div class="achievement-name">Top 1 LATAM</div>
                     </div>
@@ -2632,7 +2660,7 @@ Estrategia. Disciplina. Victoria.</p>
                 <div class="achievement-card locked reveal reveal-delay-4">
                     <div class="achievement-card-header">
                         <div class="achievement-icon-wrap">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
                         </div>
                         <div class="achievement-name">Primer Sponsor</div>
                     </div>
