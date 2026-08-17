@@ -1208,6 +1208,23 @@
         }
         .empty-table .empty-icon { font-size:2.5rem; display:block; margin-bottom:12px; opacity:.4; }
 
+        /* ── TORNEOS: tema blanco/verde ── */
+        #tourneys.content-section {
+            background:#ffffff; padding:32px 24px; border-radius:16px;
+            box-shadow:0 4px 30px rgba(0,0,0,.25);
+        }
+        #tourneys .section-title { color:#0A0A0A; text-shadow:none; }
+        #tourneys .section-title::before { background:linear-gradient(90deg, #00C853, rgba(0,200,83,.15), transparent); }
+        #tourneys .section-title::after { background:linear-gradient(90deg, #00C853, rgba(0,200,83,.3)); }
+        #tourneys .t-stat { background:#f6f6f6; border:1px solid rgba(0,200,83,.18); box-shadow:0 4px 14px rgba(0,0,0,.06); }
+        #tourneys .t-stat:hover { border-color:rgba(0,200,83,.5); }
+        #tourneys .t-stat-num { color:#00A844; }
+        #tourneys .t-stat-label { color:#888; }
+        #tourneys .tourney-table th { color:#00A844; border-bottom-color:rgba(0,200,83,.25); background:rgba(0,200,83,.04); }
+        #tourneys .tourney-table td { color:#444; border-bottom-color:rgba(0,0,0,.06); }
+        #tourneys .tourney-table tr:hover td { background:rgba(0,200,83,.05); color:#111; }
+        #tourneys .empty-table { color:#777; }
+
         /* ══ ACHIEVEMENTS SECTION ═══════════════════ */
         .achievements-grid {
             display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
@@ -2537,7 +2554,7 @@ Estrategia. Disciplina. Victoria.</p>
                             <div class="empty-table">
                                 <span class="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"><path d="M6 2h12v6a6 6 0 0 1-12 0V2z"/><path d="M6 5H3a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4M18 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4"/><path d="M12 14v4M8 21h8"/></svg></span>
                                 Aún no hemos competido en torneos oficiales.<br>
-                                <span style="color:var(--gold);font-family:'Rajdhani',sans-serif">La primera batalla se acerca.</span>
+                                <span style="color:#00A844;font-family:'Rajdhani',sans-serif">La primera batalla se acerca.</span>
                             </div>
                         </td>
                     </tr>
