@@ -496,13 +496,20 @@
         .esport-poster-overlay {
             position:relative; z-index:1; width:100%; margin-top:auto;
             background:linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.55) 55%, transparent 100%);
-            padding:70px 18px 22px;
-            display:flex; flex-direction:column; align-items:center; gap:3px;
+            padding:70px 16px 18px;
+            display:flex; flex-direction:row; align-items:flex-end; justify-content:space-between; gap:8px;
         }
-        .esport-flag { font-size:1.9rem; margin-bottom:6px; line-height:1; }
+        .esport-poster-name { text-align:left; }
+        .esport-poster-meta { text-align:right; }
+        .esport-flag-corner {
+            position:absolute; top:12px; right:12px; z-index:2;
+            font-size:1.6rem; line-height:1;
+            background:rgba(0,0,0,.4); border-radius:6px; padding:4px 7px;
+            box-shadow:0 2px 8px rgba(0,0,0,.3);
+        }
         .esport-realname { font-family:'Rajdhani',sans-serif; font-size:1.35rem; font-weight:700; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.6); }
-        .esport-tag { font-family:'Orbitron',monospace; font-size:.88rem; color:#4ADE80; letter-spacing:.05em; }
-        .esport-uid { font-size:.85rem; color:rgba(255,255,255,.75); }
+        .esport-tag { font-family:'Orbitron',monospace; font-size:.88rem; color:#4ADE80; letter-spacing:.05em; display:block; }
+        .esport-uid { font-size:.85rem; color:rgba(255,255,255,.75); display:block; }
         .esport-role-badge {
             font-family:'Rajdhani',sans-serif; font-size:1.05rem; font-weight:700;
             color:#00A844; letter-spacing:.1em; text-transform:uppercase;
@@ -3044,11 +3051,15 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="esport-inner">
                 <div class="esport-front">
                     <img src="${demo.foto}" class="esport-poster-img" alt="ALEXIS">
+                    <span class="esport-flag-corner">🇸🇻</span>
                     <div class="esport-poster-overlay">
-                        <span class="esport-flag">🇸🇻</span>
-                        <div class="esport-realname">ALEXIS</div>
-                        <div class="esport-tag">${demo.name}</div>
-                        <div class="esport-uid">ID: ${demo.uid}</div>
+                        <div class="esport-poster-name">
+                            <div class="esport-realname">ALEXIS</div>
+                        </div>
+                        <div class="esport-poster-meta">
+                            <span class="esport-tag">${demo.name}</span>
+                            <span class="esport-uid">ID: ${demo.uid}</span>
+                        </div>
                     </div>
                 </div>
                 <div class="esport-back">
@@ -3071,8 +3082,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="esport-front">
                         <div class="esport-photo-empty">?</div>
                         <div class="esport-poster-overlay" style="background:rgba(0,0,0,.04);">
-                            <div class="esport-realname" style="color:#999;text-shadow:none;">Por definir</div>
-                            <div class="esport-tag" style="color:#aaa">Slot disponible</div>
+                            <div class="esport-poster-name">
+                                <div class="esport-realname" style="color:#999;text-shadow:none;">Por definir</div>
+                            </div>
+                            <div class="esport-poster-meta">
+                                <span class="esport-tag" style="color:#aaa">Slot disponible</span>
+                            </div>
                         </div>
                     </div>
                     <div class="esport-back">
