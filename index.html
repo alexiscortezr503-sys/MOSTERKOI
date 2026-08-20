@@ -464,12 +464,13 @@
         .esport-flip.flipped .esport-inner { transform:rotateY(180deg); }
         .esport-front, .esport-back {
             position:absolute; inset:0; backface-visibility:hidden;
-            border-radius:12px; padding:26px 20px; text-align:center;
+            border-radius:12px; text-align:center;
             background:#ffffff; border:1px solid rgba(0,200,83,.25);
             box-shadow:0 4px 18px rgba(0,0,0,.1);
-            display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+            display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
             overflow:hidden;
         }
+        .esport-back { padding:26px 20px; justify-content:center; gap:14px; }
         .esport-front::after, .esport-back::after {
             content:''; position:absolute; top:0; left:-60%; width:45%; height:100%;
             background:linear-gradient(115deg, transparent, rgba(0,200,83,.28), rgba(255,255,255,.4), rgba(0,200,83,.28), transparent);
@@ -484,22 +485,30 @@
             left:130%;
         }
         .esport-back { transform:rotateY(180deg); background:#f8f8f8; }
-        .esport-photo { width:150px; height:185px; border-radius:14px; overflow:hidden; border:3px solid #00C853; box-shadow:0 0 16px rgba(0,200,83,.35); }
+        .esport-poster-img {
+            position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+        }
         .esport-photo-empty {
             display:flex; align-items:center; justify-content:center;
-            background:#f0f0f0; border-color:rgba(0,200,83,.2) !important;
-            box-shadow:none !important; font-size:3rem; color:#ccc; font-family:'Orbitron',monospace;
+            position:absolute; inset:0; z-index:0;
+            background:#f0f0f0; font-size:3rem; color:#ccc; font-family:'Orbitron',monospace;
         }
-        .esport-photo img { width:100%; height:100%; object-fit:cover; }
-        .esport-realname { font-family:'Rajdhani',sans-serif; font-size:1.35rem; font-weight:700; color:#111; }
-        .esport-tag { font-family:'Orbitron',monospace; font-size:.88rem; color:#00A844; letter-spacing:.05em; }
-        .esport-uid { font-size:.85rem; color:#888; }
+        .esport-poster-overlay {
+            position:relative; z-index:1; width:100%; margin-top:auto;
+            background:linear-gradient(to top, rgba(0,0,0,.88) 0%, rgba(0,0,0,.55) 55%, transparent 100%);
+            padding:70px 18px 22px;
+            display:flex; flex-direction:column; align-items:center; gap:3px;
+        }
+        .esport-flag { font-size:1.9rem; margin-bottom:6px; line-height:1; }
+        .esport-realname { font-family:'Rajdhani',sans-serif; font-size:1.35rem; font-weight:700; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.6); }
+        .esport-tag { font-family:'Orbitron',monospace; font-size:.88rem; color:#4ADE80; letter-spacing:.05em; }
+        .esport-uid { font-size:.85rem; color:rgba(255,255,255,.75); }
         .esport-role-badge {
             font-family:'Rajdhani',sans-serif; font-size:1.05rem; font-weight:700;
             color:#00A844; letter-spacing:.1em; text-transform:uppercase;
             background:rgba(0,200,83,.1); padding:7px 20px; border-radius:20px;
         }
-        .esport-char-photo { width:170px; height:170px; object-fit:cover; border-radius:14px; border:3px solid rgba(0,200,83,.35); }
+        .esport-char-photo { width:170px; height:170px; object-fit:cover; border-radius:14px; }
         .esport-char-name { font-family:'Orbitron',monospace; font-size:1.3rem; font-weight:900; color:#111; }
         .esport-abilities { font-size:1rem; color:#555; line-height:1.7; }
         .esport-abilities strong { color:#00A844; }
@@ -2894,7 +2903,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* ── PLAYERS DATA ──────────────────────────── */
     const players = {
         'alex-founder': {
-            name:'MKOI ◆ ALEX', realName:'ALEX (EL3LETRAS)',
+            name:'MKOI ◆ ALEX', realName:'ALEXIS',
             uid:'276784842079', role:'Fundador | Coach | IGL',
             rank:'Leyenda', kd:'N/A',
             foto:'https://i.imgur.com/4NJAJhm.jpg',
@@ -3027,17 +3036,20 @@ document.addEventListener('DOMContentLoaded', function() {
         let esportIdx = 0;
         const cards = [];
 
-        // Tarjeta 1: demo completa
+        // Tarjeta 1: demo completa (ALEXIS)
         const demo = players['alex-founder'];
         const demoCard = document.createElement('div');
         demoCard.className = 'esport-flip active';
         demoCard.innerHTML = `
             <div class="esport-inner">
                 <div class="esport-front">
-                    <div class="esport-photo"><img src="${demo.foto}" alt="${demo.realName}"></div>
-                    <div class="esport-realname">${demo.realName}</div>
-                    <div class="esport-tag">${demo.name}</div>
-                    <div class="esport-uid">ID: ${demo.uid}</div>
+                    <img src="${demo.foto}" class="esport-poster-img" alt="ALEXIS">
+                    <div class="esport-poster-overlay">
+                        <span class="esport-flag">🇸🇻</span>
+                        <div class="esport-realname">ALEXIS</div>
+                        <div class="esport-tag">${demo.name}</div>
+                        <div class="esport-uid">ID: ${demo.uid}</div>
+                    </div>
                 </div>
                 <div class="esport-back">
                     <div class="esport-role-badge">IGL</div>
@@ -3057,9 +3069,11 @@ document.addEventListener('DOMContentLoaded', function() {
             empty.innerHTML = `
                 <div class="esport-inner">
                     <div class="esport-front">
-                        <div class="esport-photo esport-photo-empty">?</div>
-                        <div class="esport-realname" style="color:#999">Por definir</div>
-                        <div class="esport-tag" style="color:#aaa">Slot disponible</div>
+                        <div class="esport-photo-empty">?</div>
+                        <div class="esport-poster-overlay" style="background:rgba(0,0,0,.04);">
+                            <div class="esport-realname" style="color:#999;text-shadow:none;">Por definir</div>
+                            <div class="esport-tag" style="color:#aaa">Slot disponible</div>
+                        </div>
                     </div>
                     <div class="esport-back">
                         <div class="esport-role-badge" style="background:rgba(0,0,0,.05);color:#999">Por definir</div>
