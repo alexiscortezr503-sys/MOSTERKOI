@@ -1233,6 +1233,32 @@
         .empty-table .empty-icon { font-size:2.5rem; display:block; margin-bottom:12px; opacity:.4; }
 
         /* ── TORNEOS: tema blanco/verde ── */
+        /* ── SOCIOS: tema blanco/verde ── */
+        #sponsors.content-section {
+            background:#ffffff; padding:32px 24px; border-radius:16px;
+            box-shadow:0 4px 30px rgba(0,0,0,.25);
+        }
+        #sponsors .section-title { color:#0A0A0A; text-shadow:none; }
+        #sponsors .section-title::before { background:linear-gradient(90deg, #00C853, rgba(0,200,83,.15), transparent); }
+        #sponsors .section-title::after { background:linear-gradient(90deg, #00C853, rgba(0,200,83,.3)); }
+        .sponsors-intro {
+            font-family:'Rajdhani',sans-serif; font-size:1.05rem; color:#555;
+            margin-bottom:28px;
+        }
+        .sponsors-grid {
+            display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+            gap:18px;
+        }
+        .sponsor-card {
+            background:#f6f6f6; border:1px solid rgba(0,200,83,.18);
+            border-radius:14px; padding:30px 24px;
+            display:flex; align-items:center; justify-content:center;
+            box-shadow:0 4px 14px rgba(0,0,0,.06);
+            transition:var(--tr);
+        }
+        .sponsor-card:hover { border-color:rgba(0,200,83,.5); transform:translateY(-4px); box-shadow:0 10px 24px rgba(0,0,0,.1); }
+        .sponsor-logo { max-width:100%; max-height:70px; object-fit:contain; }
+
         #tourneys.content-section {
             background:#ffffff; padding:32px 24px; border-radius:16px;
             box-shadow:0 4px 30px rgba(0,0,0,.25);
@@ -2325,6 +2351,10 @@ Estrategia. Disciplina. Victoria.</p>
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 <span class="nav-text">Inicio</span>
             </button>
+            <button class="nav-btn" data-section="sponsors">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                <span class="nav-text">Socios</span>
+            </button>
             <button class="nav-btn" data-section="team">
                 <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
                 <span class="nav-text">ESPORT</span>
@@ -2436,6 +2466,17 @@ Estrategia. Disciplina. Victoria.</p>
                 </a>
             </div>
 
+        </section>
+
+        <!-- SPONSORS -->
+        <section id="sponsors" class="content-section">
+            <h2 class="section-title">Socios</h2>
+            <p class="sponsors-intro">Conoce a nuestros patrocinadores</p>
+            <div class="sponsors-grid">
+                <a href="https://www.dubby.gg/collections/all" target="_blank" class="sponsor-card">
+                    <img src="assets/dubby-logo.png" alt="Dubby" class="sponsor-logo">
+                </a>
+            </div>
         </section>
 
         <!-- LEADERSHIP -->
@@ -3461,7 +3502,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ══════════════════════════════════════════════ */
     const TRANSLATIONS = {
         es: {
-            'nav-home':'Inicio','nav-team':'ESPORT',
+            'nav-home':'Inicio','nav-sponsors':'Socios','nav-team':'ESPORT',
             'nav-history':'Historia','nav-social':'Social',
             'nav-tourneys':'Torneos','nav-achievements':'Logros','nav-news':'Noticias',
                         'hero-sub':'Elite Esports Clan · LATAM',
@@ -3469,6 +3510,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'join-title':'⚔ ÚNETE A MONSTER KOI',
             'stat-members':'Miembros','stat-founders':'Fundadores','stat-sponsors':'Sponsors',
             'section-home':'Bienvenido a Monster Koi',
+            'section-sponsors':'Socios',
                         'section-team':'ESPORT',
             'section-history':'Nuestra Historia',
                         'section-social':'Redes Sociales',
@@ -3477,7 +3519,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'section-news':'Noticias del Clan',
                     },
         en: {
-            'nav-home':'Home','nav-team':'ESPORT',
+            'nav-home':'Home','nav-sponsors':'Sponsors','nav-team':'ESPORT',
             'nav-history':'History','nav-social':'Social',
             'nav-tourneys':'Tournaments','nav-achievements':'Achievements','nav-news':'News',
                         'hero-sub':'Elite Esports Clan · LATAM',
@@ -3485,6 +3527,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'join-title':'⚔ JOIN MONSTER KOI',
             'stat-members':'Members','stat-founders':'Founders','stat-sponsors':'Sponsors',
             'section-home':'Welcome to Monster Koi',
+            'section-sponsors':'Sponsors',
                         'section-team':'ESPORT',
             'section-history':'Our Story',
                         'section-social':'Social Media',
