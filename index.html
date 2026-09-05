@@ -2327,24 +2327,24 @@
     <header class="hero">
         <div class="hero-banners">
             <img src="banners/banner01.png" class="hero-banner-img" alt="" loading="eager">
-            <img src="banners/banner02.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner03.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner04.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner05.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner06.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner07.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner08.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner09.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner10.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner11.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner12.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner13.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner14.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner15.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner16.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner17.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner18.png" class="hero-banner-img" alt="" loading="lazy">
-            <img src="banners/banner19.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner02.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner03.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner04.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner05.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner06.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner07.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner08.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner09.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner10.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner11.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner12.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner13.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner14.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner15.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner16.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner17.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner18.png" class="hero-banner-img" alt="" loading="lazy">
+            <img data-src="banners/banner19.png" class="hero-banner-img" alt="" loading="lazy">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-text">
@@ -3384,12 +3384,23 @@ document.addEventListener('DOMContentLoaded', function() {
     (function() {
         const banners = document.querySelectorAll('.hero-banner-img');
         if (!banners.length) return;
+
+        function ensureLoaded(img) {
+            if (img.dataset.src && !img.hasAttribute('src')) {
+                img.src = img.dataset.src;
+            }
+        }
+
         let idx = 0;
         banners[0].classList.add('active');
+        ensureLoaded(banners[1 % banners.length]); // precargar la siguiente
+
         setInterval(() => {
             banners[idx].classList.remove('active');
             idx = (idx + 1) % banners.length;
+            ensureLoaded(banners[idx]);
             banners[idx].classList.add('active');
+            ensureLoaded(banners[(idx + 1) % banners.length]); // precargar la que sigue
         }, 5000);
     })();
 
