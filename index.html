@@ -24,6 +24,20 @@
         html { scroll-behavior:smooth; }
         body { font-family:'Exo 2',sans-serif; background:#ffffff; color:#222; overflow-x:hidden; }
 
+        /* ══════════════════════════════════════════
+           OPTIMIZACION MOBILE — equipos de gama media/baja
+           (backdrop-filter es lo mas pesado para GPUs debiles)
+        ══════════════════════════════════════════ */
+        @media (max-width:820px) {
+            * {
+                backdrop-filter:none !important;
+                -webkit-backdrop-filter:none !important;
+            }
+            .bg-layer::before { animation:none; }
+            .bg-layer::after { animation:none; opacity:.5; }
+            .hero-title.glitch, .hero-tagline.glitch { animation-duration:.5s !important; }
+        }
+
         /* ── BACKGROUND ─────────────────────────── */
         .bg-layer {
             position:fixed; inset:0; z-index:0; pointer-events:none;
