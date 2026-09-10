@@ -3722,7 +3722,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function renderTourneys() {
         const tbody = document.querySelector('.tourney-table tbody');
-        const ts    = Store.get('tourneys', []);
+        const ts    = Store.get('tourneys', [
+            { name:'Copa Latinoamericana de BS — Batalla por LATAM', date:'', pos:'—', status:'upcoming' }
+        ]);
         if (!ts.length) {
             tbody.innerHTML = '<tr><td colspan="4"><div class="empty-table"><span class="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"><path d="M6 2h12v6a6 6 0 0 1-12 0V2z"/><path d="M12 14v4M8 21h8"/></svg></span>Aún no hemos competido en torneos oficiales.<br><span style="color:var(--gold);font-family:Rajdhani,sans-serif">La primera batalla se acerca.</span></div></td></tr>';
             return;
