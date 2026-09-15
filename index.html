@@ -997,6 +997,25 @@
         }
         .home-banner-sub strong { color:#111; font-weight:700; }
 
+        .copa-highlight {
+            display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+            gap:10px; text-decoration:none;
+            background:linear-gradient(90deg, rgba(0,200,83,.1), rgba(0,200,83,.03));
+            border:1px solid rgba(0,200,83,.35); border-radius:12px;
+            padding:16px 22px; margin:0 0 22px;
+            transition:var(--tr);
+        }
+        .copa-highlight:hover { border-color:#00C853; background:rgba(0,200,83,.14); transform:translateY(-2px); }
+        .copa-highlight-label {
+            font-family:'Orbitron',monospace; font-size:.72rem; font-weight:900;
+            letter-spacing:.1em; color:#00A844; text-transform:uppercase; flex:1 1 auto;
+        }
+        .copa-highlight-text { font-family:'Rajdhani',sans-serif; font-size:.88rem; color:#555; }
+        .copa-highlight-cta {
+            font-family:'Rajdhani',sans-serif; font-size:.8rem; font-weight:700;
+            color:#00A844; white-space:nowrap;
+        }
+
         /* BENTO STATS */
         .home-bento {
             display:grid; grid-template-columns:repeat(4,1fr);
@@ -2407,8 +2426,15 @@ Estrategia. Disciplina. Victoria.</p>
             <div class="home-banner">
                 <div class="home-banner-tag">EL SALVADOR · BLOOD STRIKE · LATAM</div>
                 <h2 class="home-banner-title">MONSTER KOI</h2>
-                <p class="home-banner-sub">El clan esport más organizado de Centroamérica.<br>Fundado el <strong>10 de septiembre de 2025</strong> con visión de élite.</p>
+                <p class="home-banner-sub">El clan esport más organizado de Centroamérica.<br>Fundado el <strong>23 de septiembre de 2025</strong> con visión de élite.</p>
             </div>
+
+            <!-- COPA DESTACADA -->
+            <a class="copa-highlight" href="#" onclick="document.querySelector('[data-section=&quot;social&quot;]').click(); return false;">
+                <span class="copa-highlight-label">MONSTER KOI — COPA LATINOAMERICANA</span>
+                <span class="copa-highlight-text">Próximo enfrentamiento: por confirmar</span>
+                <span class="copa-highlight-cta">Síguenos en redes →</span>
+            </a>
 
             <!-- STATS BENTO -->
             <div class="home-bento">
@@ -2427,7 +2453,7 @@ Estrategia. Disciplina. Victoria.</p>
                     </div>
                 </div>
                 <div class="bento-stat">
-                    <div class="bento-stat-num" data-target="0">0</div>
+                    <div class="bento-stat-num" data-target="1">0</div>
                     <div class="bento-stat-label">Sponsors</div>
                     <div class="bento-stat-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
@@ -2521,10 +2547,10 @@ Estrategia. Disciplina. Victoria.</p>
             <div class="history-timeline">
 
                 <div class="timeline-item">
-                    <div class="timeline-date">10 Sep 2025 — Fundación</div>
+                    <div class="timeline-date">23 Sep 2025 — Fundación</div>
                     <div class="timeline-content">
                         <h3>Nace Monster Koi</h3>
-                        <p>Monster Koi fue creado el 10 de septiembre de 2025 por ALEX con la ayuda de su amigo CÉSAR, quien apoyó con la creación del clan en el juego. Desde sus inicios, el clan nació con la expectativa de destacar con el tiempo, sabiendo que el juego va creciendo y las cosas se van formalizando.</p>
+                        <p>Monster Koi fue creado el 23 de septiembre de 2025 por ALEX con la ayuda de su amigo CÉSAR, quien apoyó con la creación del clan en el juego. Desde sus inicios, el clan nació con la expectativa de destacar con el tiempo, sabiendo que el juego va creciendo y las cosas se van formalizando.</p>
                     </div>
                 </div>
 
