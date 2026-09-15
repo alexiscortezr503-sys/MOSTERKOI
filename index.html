@@ -158,6 +158,22 @@
             margin-bottom:6px;
             animation:slideUp .9s .4s ease both;
         }
+        .hero-actions {
+            display:flex; flex-wrap:wrap; gap:12px; margin-top:20px;
+            animation:slideUp .9s .6s ease both;
+        }
+        .hero-btn {
+            display:inline-flex; align-items:center; padding:11px 24px;
+            border:1px solid rgba(0,200,83,.5); border-radius:8px;
+            font-family:'Orbitron',monospace; font-size:.7rem; font-weight:700;
+            letter-spacing:.14em; text-transform:uppercase; text-decoration:none;
+            color:#00A844; background:rgba(0,200,83,.05);
+            transition:var(--tr);
+        }
+        .hero-btn:hover { background:rgba(0,200,83,.15); border-color:#00C853; transform:translateY(-2px); }
+        .hero-btn-primary { background:#00C853; color:#fff; border-color:#00C853; }
+        .hero-btn-primary:hover { background:#00A844; color:#fff; }
+        @media (max-width:640px) { .hero-actions { justify-content:center; } }
         .hero-tagline {
             position:relative;
             font-family:'Rajdhani',sans-serif;
@@ -2425,6 +2441,10 @@
             <p class="hero-tagline" id="heroTagline" data-text="Las kills adornan la pantalla; la inteligencia gana los torneos.
 Estrategia. Disciplina. Victoria.">Las kills adornan la pantalla; la inteligencia gana los torneos.
 Estrategia. Disciplina. Victoria.</p>
+            <div class="hero-actions">
+                <a href="https://discord.gg/mdebB246" target="_blank" class="hero-btn hero-btn-primary">Únete a MKOI</a>
+                <a href="#" onclick="document.querySelector('[data-section=&quot;sponsors&quot;]').click(); return false;" class="hero-btn">Patrocina a MKOI</a>
+            </div>
         </div>
         <div class="koi-scene">
             <img src="assets/logo.png" alt="Monster Koi Logo" class="logo-img">
