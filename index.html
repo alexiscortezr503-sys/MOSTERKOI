@@ -51,6 +51,15 @@
             .bg-layer::before { animation:none; }
             .bg-layer::after { animation:none; opacity:.5; }
             .hero-title.glitch, .hero-tagline.glitch { animation-duration:.5s !important; }
+            .hero-title { animation:slideUp .9s .2s ease both !important; text-shadow:0 0 12px rgba(0,200,83,.3) !important; }
+            .esport-inner, .flip-inner, .member-inner { transition-duration:.35s !important; }
+            .esport-flip:hover .esport-inner { transform:none; }
+        }
+        @media (max-width:480px) {
+            .bento-stat, .achievement-card, .news-card, .timeline-content,
+            .sponsor-card, .sponsor-tier, .social-card {
+                box-shadow:0 2px 8px rgba(0,0,0,.06) !important;
+            }
         }
 
         /* ── BACKGROUND ─────────────────────────── */
@@ -3561,7 +3570,7 @@ document.addEventListener('DOMContentLoaded', function() {
         introCanvas.width  = window.innerWidth;
         introCanvas.height = window.innerHeight;
         // Menos partículas en móvil para mejor rendimiento
-        const particleCount = (window.innerWidth < 768) ? 25 : 80;
+        const particleCount = (window.innerWidth < 768) ? 15 : 80;
         const iParticles = Array.from({length:particleCount}, () => ({
             x: Math.random() * introCanvas.width,
             y: Math.random() * introCanvas.height,
@@ -3578,7 +3587,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (p.y < -5) { p.y = introCanvas.height + 5; p.x = Math.random()*introCanvas.width; }
                 ic.beginPath();
                 ic.arc(p.x, p.y, p.r, 0, Math.PI*2);
-                ic.fillStyle = p.gold ? `rgba(255,215,0,${p.alpha})` : `rgba(255,100,50,${p.alpha*0.6})`;
+                ic.fillStyle = p.gold ? `rgba(0,200,83,${p.alpha})` : `rgba(0,168,68,${p.alpha*0.6})`;
                 ic.fill();
             });
             if (!introScreen.classList.contains('hide')) requestAnimationFrame(drawIntroParticles);
