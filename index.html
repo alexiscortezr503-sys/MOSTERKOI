@@ -2517,7 +2517,7 @@ Estrategia. Disciplina. Victoria.</p>
             <!-- COPA DESTACADA -->
             <a class="copa-highlight" href="#" onclick="document.querySelector('[data-section=&quot;social&quot;]').click(); return false;">
                 <span class="copa-highlight-label">MONSTER KOI — COPA LATINOAMERICANA</span>
-                <span class="copa-highlight-text">Próximo enfrentamiento: por confirmar</span>
+                <span class="copa-highlight-text">Resultado: Finalistas</span>
                 <span class="copa-highlight-cta">Síguenos en redes →</span>
             </a>
 
@@ -2545,7 +2545,7 @@ Estrategia. Disciplina. Victoria.</p>
                     </div>
                 </div>
                 <div class="bento-stat">
-                    <div class="bento-stat-num" data-target="0">0</div>
+                    <div class="bento-stat-num" data-target="1">0</div>
                     <div class="bento-stat-label">Torneos</div>
                     <div class="bento-stat-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 21h8M12 17v4M7 4H4l1 7h14l1-7h-3"/><path d="M5 11c0 3.31 3.13 6 7 6s7-2.69 7-6"/></svg>
@@ -2713,6 +2713,14 @@ Estrategia. Disciplina. Victoria.</p>
                 </div>
 
                 <div class="timeline-item">
+                    <div class="timeline-date">2026 — Copa Latinoamericana</div>
+                    <div class="timeline-content">
+                        <h3>Finalistas en nuestro primer torneo oficial</h3>
+                        <p>Monster Koi compite en la Copa Latinoamericana de Blood Strike, "Batalla por LATAM", y llega a la final.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
                     <div class="timeline-date">Presente — La visión</div>
                     <div class="timeline-content">
                         <h3>El mejor proyecto de LATAM</h3>
@@ -2831,17 +2839,7 @@ Estrategia. Disciplina. Victoria.</p>
                         <th>Estado</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td colspan="4">
-                            <div class="empty-table">
-                                <span class="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"><path d="M6 2h12v6a6 6 0 0 1-12 0V2z"/><path d="M6 5H3a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4M18 5h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4"/><path d="M12 14v4M8 21h8"/></svg></span>
-                                Aún no hemos competido en torneos oficiales.<br>
-                                <span style="color:#00A844;font-family:'Rajdhani',sans-serif">La primera batalla se acerca.</span>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody><tr><td>Copa Latinoamericana de BS — Batalla por LATAM</td><td>—</td><td>Finalista</td><td><span class="status-badge status-finished">Finalizado</span></td></tr></tbody>
             </table>
         </section>
 
@@ -2892,15 +2890,14 @@ Estrategia. Disciplina. Victoria.</p>
                     <div class="achievement-desc">Construir una comunidad sólida y activa alrededor del clan en redes sociales.</div>
                     <div class="achievement-locked-label">— BLOQUEADO —</div>
                 </div>
-                <div class="achievement-card locked reveal reveal-delay-4">
+                <div class="achievement-card reveal reveal-delay-4">
                     <div class="achievement-card-header">
                         <div class="achievement-icon-wrap">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="1.5" stroke-linecap="round"><path d="M6 2h12v6a6 6 0 0 1-12 0V2z"/><path d="M12 14v4M8 21h8"/></svg>
                         </div>
                         <div class="achievement-name">Primer Torneo</div>
                     </div>
-                    <div class="achievement-desc">Participar en el primer torneo oficial de Blood Strike.</div>
-                    <div class="achievement-locked-label">— BLOQUEADO —</div>
+                    <div class="achievement-desc">Conseguido — <strong style="color:#00A844">finalistas</strong> en la Copa Latinoamericana de BS, nuestro primer torneo oficial.</div>
                 </div>
                 <div class="achievement-card locked reveal reveal-delay-4">
                     <div class="achievement-card-header">
@@ -2928,6 +2925,17 @@ Estrategia. Disciplina. Victoria.</p>
         <section id="news" class="content-section">
             <h2 class="section-title">Noticias del Clan</h2>
             <div class="news-grid">
+                <div class="news-card reveal">
+                    <div class="news-card-accent"></div>
+                    <div class="news-card-body">
+                        <div class="news-date">COPA LATAM 2026</div>
+                        <div class="news-title">Monster Koi, finalista de la Copa Latinoamericana de BS</div>
+                        <div class="news-body">En nuestro primer torneo oficial, Monster Koi llegó a la final de la Copa Latinoamericana de Blood Strike, "Batalla por LATAM", una competencia con $10,000 en premios totales.</div>
+                    </div>
+                    <div class="news-card-footer">
+                        <span class="news-tag">Torneo</span>
+                    </div>
+                </div>
                 <div class="news-card reveal reveal-delay-1">
                     <div class="news-card-accent"></div>
                     <div class="news-card-body">
@@ -3866,10 +3874,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderTourneys() {
         const tbody = document.querySelector('.tourney-table tbody');
         const ts    = Store.get('tourneys', [
-            { name:'Copa Latinoamericana de BS — Batalla por LATAM', date:'', pos:'—', status:'upcoming' }
+            { name:'Copa Latinoamericana de BS — Batalla por LATAM', date:'', pos:'Finalista', status:'finished' }
         ]);
         if (!ts.length) {
-            tbody.innerHTML = '<tr><td colspan="4"><div class="empty-table"><span class="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"><path d="M6 2h12v6a6 6 0 0 1-12 0V2z"/><path d="M12 14v4M8 21h8"/></svg></span>Aún no hemos competido en torneos oficiales.<br><span style="color:var(--gold);font-family:Rajdhani,sans-serif">La primera batalla se acerca.</span></div></td></tr>';
+            tbody.innerHTML = '<tr><td colspan="4"><div class="empty-table"><span class="empty-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"><path d="M6 2h12v6a6 6 0 0 1-12 0V2z"/><path d="M12 14v4M8 21h8"/></svg></span>Pronto habrá más torneos.</div></td></tr>';
             return;
         }
         const statusMap = { upcoming:'upcoming', active:'active', finished:'finished' };
